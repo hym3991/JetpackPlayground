@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/test_navi"
+            app:startDestination="@id/fA">
+
+  <fragment
+      android:id="@+id/fA"
+      android:name="com.example.hym.jetpackplayground.controler.navigation.FragmentA"
+      android:label="FA"
+      tools:layout="@layout/fragment_a">
+
+      <action android:id="@+id/action_fa"
+          app:destination="@id/fB"
+          app:exitAnim="@android:anim/slide_out_right"/>
+      <action
+          android:id="@+id/action_fA_to_fragmentC"
+          app:destination="@id/fragmentC"/>
+  </fragment>
+
+
+  <fragment
+      android:id="@+id/fB"
+      android:name="com.example.hym.jetpackplayground.controler.navigation.FragmentB"
+      android:label="fB"
+      tools:layout="@layout/fragment_b">
+
+      <argument android:name="title" app:argType="string" android:defaultValue="test"/>
+      <argument android:name="num" app:argType="integer" android:defaultValue="100"/>
+
+      <action android:id="@+id/action_fb"
+              app:destination="@id/fC"
+              app:exitAnim="@android:anim/slide_out_right"/>
+  </fragment>
+
+  <fragment
+      android:id="@+id/fC"
+      android:name="com.example.hym.jetpackplayground.controler.navigation.FragmentC"
+      android:label="FC"
+      tools:layout="@layout/fragment_c">
+
+      <action android:id="@+id/action_fc"
+              app:destination="@id/fA"
+              app:exitAnim="@android:anim/slide_out_right"/>
+  </fragment>
+
+
+    <fragment
+        android:id="@+id/fragmentC"
+        android:name="com.example.hym.jetpackplayground.FragmentC"
+        android:label="fragment_fragment_c"
+        tools:layout="@layout/fragment_fragment_c"/>
+
+</navigation>
